@@ -1,0 +1,114 @@
+Hello, Gophers!
+Go Blog Go
+8 Sep 2015
+
+Jon Wear
+DramaFever.com
+@genghisjahn
+
+
+* Run a simple blog with simple go
+
+What is this?
+
+- A blog engine
+- 3 simple go code files
+- Same code that runs the https://blog.golang.org/
+
+* And another site!
+
+(_That_you_may_not_have_heard_of_)
+
+.link http://www.jonwear.com
+
+* Why run my own blog?
+
+- Because it's fun
+- Because it would teach me more linuxy stuff.
+- And because of a blog post by Scott Hanselman
+
+* The post was called:
+
+*Your*words*are*wasted*
+
+"I've been blogging here for over 10 years. On my domain, running my software pushing out HTML when you visit the site on any device and RSS or ATOM...I control this domain, this software and this content. The feed is full content and the space is mine. Tim nails it so I'll make this super clear. If you decide to use a service where you don't control your content, you're renting."
+
+.link http://www.hanselman.com/blog/YourWordsAreWasted.aspx
+
+* Step 1: Get a server
+
+I got a cheap one from Scaleway.com.
+
+- 4 Cores @1.3GHz
+- 2GB memory
+- 50 GB SSD
+- 1 public IP
+
+Costs €2.99/month which is currently $3.34
+
+* Step 2: Install some stuff
+
+SSH in and:
+
+- install golang
+- install nginx
+- git clone https://github.com/genghisjahn/jwblog
+
+* Step 3: Configure some stuff
+
+- Build the go files: *go*build*blog.go*local.go*rewrite.go*
+- Daemonize your binary however you like
+- Config nginx to proxy port 80 to 8080
+
+- point your domain name to your publice IP
+
+* Step 4: Add a google custom search engine
+
+.link https://cse.google.com/
+
+This works on and off, still working out the kinks.
+
+* The blog is running!
+
+The markup is based on the the present tool markup.
+
+It all goes in _.article_ files.
+
+You can change up the templates.
+
+* Porting old content
+
+- I started off hand copy/pasting in, editing for the new markup
+- That was taking forever
+
+Then I realized...
+
+- Use .html in the file
+- This allows me to do a broad copy paste over, no editing.
+- Future posts will rely on the present format & .html when I need to hack something in HTML.
+
+* Like this
+
+This article is just an .html tag
+
+.link https://github.com/genghisjahn/blogcontent/blob/master/iphoneog.article
+
+That points to:
+
+.link https://github.com/genghisjahn/blogcontent/blob/master/old/iphoneog.html
+
+
+* What about old URLs?
+
+Use the rewrite.go file:
+
+.link https://github.com/genghisjahn/jwblog/blob/master/rewrite.go
+
+* The future
+
+I'm going to modify my jwblog repo:
+
+- Make it a barebones
+- No content
+- Template out all site specific names
+- Figure out what's up with CSE
