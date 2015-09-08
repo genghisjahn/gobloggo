@@ -72,6 +72,8 @@ This works on and off, still working out the kinks.
 
 The markup is based on the the present tool markup.
 
+.link https://godoc.org/golang.org/x/tools/present
+
 It all goes in _.article_ files.
 
 You can change up the templates.
